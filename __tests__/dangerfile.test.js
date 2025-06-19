@@ -248,13 +248,23 @@ describe('isValidNewPixelSubmission', () => {
     expect(isValidNewPixelSubmission(pixel, 'dkundel')).toBe(false);
   });
 
-  test('fails if color is missing', () => {
+  test('fails if color and tile name are missing', () => {
     const pixel = {
       username: 'twilio',
       x: 0,
       y: 0
     };
     expect(isValidNewPixelSubmission(pixel, 'dkundel')).toBe(false);
+  });
+
+  test('succeeds for valid tile pixel', () => {
+    const pixel = {
+      username: 'dkundel',
+      tileName: 'cat',
+      y: 0,
+      x: 0
+    };
+    expect(isValidNewPixelSubmission(pixel, 'dkundel')).toBe(true);
   });
 
   test('fails if x coordinate is not a number', () => {
