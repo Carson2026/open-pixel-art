@@ -203,9 +203,9 @@ function isValidNewPixelSubmission(pixel, gitHubUsername) {
     result = false;
   }
 
-  if (!pixel.color) {
+  if (!pixel.color && !pixel.tileName) {
     fail(
-      `Please specify either a color using \`color: '#000000\` in your pixel.`
+      `Please specify either a color using \`color: '#000000'\` or a \`tileName\` in your pixel.`
     );
     result = false;
   }
